@@ -30,7 +30,9 @@ guy <- list(male=1, race=1, age=50, state=1, time.served=3, max.sentence=12,
 		multiple.offenses=0, crime=2)
 guy$state <- factor(guy$state, levels=1:4)
 guy$crime <- factor(guy$crime, levels=1:4)
-pred.guy <- predict(log1, newdata=data.frame(guy), type="response")
+# odds = exp(logOdds)
+exp(predict(log1, newdata=data.frame(guy)))
+predict(log1, newdata=data.frame(guy), type="response")
 
 # predict on test set
 pred.test <- predict(log1, newdata=test, type="response")
